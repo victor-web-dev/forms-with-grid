@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "... ... ..."
+          "... content ..."
+          "... ... ...";
+        /* justify-items: center; */
+        /* align-items: center; */
+
+        height: 100vh;
+      }
+      .container-content {
+        grid-area: content;
+        align-items: self-end;
+        height: 100%;
+        text-align: center;
+        background-image: url(https://cdn.pixabay.com/photo/2023/08/18/15/02/cat-8198720_1280.jpg);
+        background-size: cover;
+        background-color: rgba(0, 0, 255, 0.7);
+        padding: 50px 50px;
+      }
+
+      .container-content > .title {
+        color: white;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+      .container-content > .title h1 {
+        margin-bottom: 10px;
+      }
+
+      .inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "name email"
+          "phone phone";
+        gap: 10px;
+      }
+      input {
+        padding: 10px;
+        border-radius: 5px;
+      }
+      input[type="text"] {
+        grid-area: name;
+      }
+      input[type="email"] {
+        grid-area: email;
+      }
+      input[type="tel"] {
+        grid-area: phone;
+      }
+
+      .btn {
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      .btn button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: blue;
+        font-weight: bold;
+      }
+
+      .next-page {
+        position: relative;
+        top: 65%;
+        left: 60%;
+      }
+
+      .next-page a {
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container">
+          <div class="container-content">
+            <div class="title">
+              <h1>Lorem ipsum dolor</h1>
+              <p>Nulla non mollitia ab vero!</p>
+            </div>
+            <form>
+              <div class="inputs">
+                <input type="text" name="input-name" placeholder="Name" />
+                <input type="email" name="email" placeholder="Email" />
+                <input type="tel" name="phone" placeholder="Phone Number" />
+              </div>
+              <div class="btn">
+                <button type="submit">Submit</button>
+              </div>
+            </form>
+            <div class="next-page"><a href="./grid1.html">Next grid</a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

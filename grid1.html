@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+
+      .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "... ... ... ..."
+          "... content content ..."
+          "... content content ..."
+          "... ... ... ...";
+      }
+
+      .content-container {
+        grid-area: content;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+        grid-template-areas: "image content";
+        padding: 50px;
+        align-items: center;
+        justify-items: center;
+        column-gap: 20px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+      }
+
+      .content-container .image {
+        grid-area: image;
+        height: 100%;
+      }
+
+      .content-container .image img {
+        height: 500px;
+        width: 300px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+      }
+
+      .content-container .content {
+        grid-area: content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "header header"
+          "form info";
+        row-gap: 10px;
+        column-gap: 20px;
+        text-align: left;
+      }
+
+      .content .header {
+        grid-area: header;
+        padding: 10px;
+        font-size: 1.3rem;
+      }
+
+      .content .form {
+        grid-area: form;
+        padding: 10px;
+      }
+      .content .info {
+        grid-area: info;
+        padding: 10px;
+      }
+      .content .info label {
+        display: block;
+        font-weight: bold;
+      }
+      .content .info label p {
+        font-weight: normal;
+      }
+
+      .content .info label:first-child {
+        margin-bottom: 30px;
+      }
+
+      .content .form input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid gray;
+        background: transparent;
+      }
+
+      .content .form button {
+        padding: 10px 50px;
+        margin-top: 20px;
+        background-color: blue;
+        color: white;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.5s ease-in-out;
+      }
+
+      .content .form button:hover {
+        background-color: lightblue;
+      }
+
+      .next-page {
+        position: absolute;
+        top: 85%;
+        left: 60%;
+      }
+
+      .last-page {
+        position: absolute;
+        top: 85%;
+        right: 60%;
+      }
+
+      .last-page a,
+      .next-page a {
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container">
+          <div class="content-container">
+            <div class="image">
+              <img
+                src="https://cdn.pixabay.com/photo/2022/01/29/09/01/bird-6976834_1280.jpg"
+                alt="peacock"
+              />
+            </div>
+            <div class="content">
+              <div class="header">
+                <h1>Peacock Delivery</h1>
+              </div>
+              <div class="form">
+                <form>
+                  <input
+                    type="text"
+                    name="full-name"
+                    placeholder="Target Full Name"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Target E-mail"
+                  />
+                  <input
+                    type="text"
+                    name="message"
+                    placeholder="Send regards to the target"
+                  />
+                  <button class="submit-btn" type="submit">Send</button>
+                </form>
+              </div>
+              <div class="info">
+                <label for="email">
+                  Contact
+                  <p id="email">delivery@noway.com</p>
+                </label>
+                <label for="what">
+                  Based in
+                  <p id="what">somewhere underground</p>
+                </label>
+              </div>
+            </div>
+            <div class="next-page"><a href="./grid2.html">Next grid</a></div>
+            <div class="last-page"><a href="./index.html">Last grid</a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

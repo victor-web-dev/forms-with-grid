@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+
+      .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "... ... ..."
+          "... content ..."
+          "... ... ...";
+        background-color: gray;
+      }
+      .content {
+        grid-area: content;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+      }
+
+      .header-area {
+        margin-bottom: 40px;
+      }
+
+      .form-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "contact detail";
+        column-gap: 20px;
+      }
+
+      .form-area label,
+      .form-area label input,
+      .form-area label select,
+      .form-area label textarea {
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .form-area label select,
+      .form-area label input {
+        padding: 5px;
+        margin-top: 5px;
+        background-color: rgba(135, 206, 235, 0.2);
+      }
+
+      .form-area label textarea {
+        resize: none;
+        padding: 5px;
+        margin-top: 5px;
+        background-color: rgba(135, 206, 235, 0.2);
+      }
+
+      .form-area label {
+        padding-bottom: 10px;
+      }
+
+      .form-area .form-area-contact {
+        grid-area: contact;
+      }
+
+      .form-area .form-area-detail {
+        grid-area: detail;
+      }
+
+      .form-area #select-number,
+      .form-area #phone-number {
+        display: inline-block;
+      }
+      .form-area #select-number {
+        width: fit-content;
+      }
+      .form-area #phone-number {
+        width: auto;
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: skyblue;
+        color: white;
+        border: none;
+        margin-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.5s ease-in-out;
+      }
+
+      .submit-btn:hover {
+        background-color: aquamarine;
+      }
+
+      .next-page {
+        position: absolute;
+        top: 85%;
+        left: 60%;
+      }
+
+      .last-page {
+        position: absolute;
+        top: 85%;
+        right: 60%;
+      }
+
+      .last-page a,
+      .next-page a {
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        background-color: brown;
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="container">
+        <div class="content">
+          <div class="header-area">
+            <h1>Book your Disappointment</h1>
+            <p>So we can disappoint you properly</p>
+          </div>
+          <form>
+            <div class="form-area">
+              <div class="form-area-contact">
+                <label for="full-name">
+                  Full Name
+                  <input type="text" id="full-name" placeholder="John Doe" />
+                </label>
+                <label for="email">
+                  Email
+                  <input type="email" id="email" placeholder="john@email.com" />
+                </label>
+                <label for="phone-number">
+                  Phone Number
+                  <div style="text-wrap: nowrap">
+                    <select name="" id="select-number">
+                      <option value="971">+971</option>
+                    </select>
+                    <input
+                      type="tel"
+                      id="phone-number"
+                      placeholder="888300222"
+                    />
+                  </div>
+                </label>
+              </div>
+              <div class="form-area-detail">
+                <label for="">
+                  Available Date
+                  <select name="" id="">
+                    <option value="select" selected>select</option>
+                  </select>
+                </label>
+
+                <label for="">
+                  Share Your Message
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="5"
+                    placeholder="Message"
+                  ></textarea>
+                </label>
+                <div style="text-align: right">
+                  <button class="submit-btn" type="submit">Submit</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="next-page"><a href="./grid3.html">Next grid</a></div>
+          <div class="last-page"><a href="./grid1.html">Last grid</a></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
