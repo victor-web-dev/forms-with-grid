@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+
+      .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "... ... ..."
+          "... content ..."
+          "... ... ...";
+        background-color: gray;
+      }
+
+      .content {
+        grid-area: content;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "header header"
+          "basic-info basic-info"
+          "text-area text-area"
+          "address-info address-info"
+          "btn btn";
+        width: 100%;
+        justify-items: left;
+        align-items: center;
+        background-color: antiquewhite;
+        border-radius: 10px;
+      }
+
+      .content .header {
+        grid-area: header;
+        justify-self: left;
+        margin-left: 20px;
+      }
+      .content .basic-info {
+        grid-area: basic-info;
+        width: 50%;
+        text-wrap: nowrap;
+      }
+      .content .text-area {
+        grid-area: text-area;
+        width: 100%;
+      }
+
+      .content .address-info {
+        grid-area: address-info;
+        text-wrap: nowrap;
+        width: 50%;
+      }
+
+      .content .btn {
+        grid-area: btn;
+        justify-self: right;
+        margin-right: 20px;
+      }
+
+      .content .btn button {
+        padding: 10px 40px;
+        background-color: rgb(32, 32, 252);
+        border-radius: 5px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background 0.5s ease-in-out;
+      }
+
+      .content .btn button:hover {
+        background-color: lightblue;
+      }
+
+      .content label {
+        display: inline-block;
+        padding: 10px;
+        width: 100%;
+      }
+      .content label input,
+      .content label textarea,
+      .content label select {
+        display: block;
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        margin-top: 10px;
+        border: none;
+      }
+      .content label textarea {
+        height: 100px;
+        resize: none;
+      }
+
+      .last-page {
+        position: absolute;
+        top: 90%;
+        right: 60%;
+      }
+
+      .last-page a {
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        background-color: brown;
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form>
+        <section class="container">
+          <div class="content">
+            <div class="header">
+              <h2>Job Application</h2>
+            </div>
+            <div class="basic-info">
+              <div>
+                <label for="first-name">
+                  First Name
+                  <input type="text" id="first-name" placeholder="First Name" />
+                </label>
+                <label for="last-name">
+                  Last Name
+                  <input type="text" id="last-name" placeholder="Last Name" />
+                </label>
+              </div>
+              <div>
+                <label for="email">
+                  Email
+                  <input type="email" id="email" placeholder="Email" />
+                </label>
+                <label for="job-role">
+                  Job Role
+                  <select name="" id="job-role">
+                    <option value="front" selected>Frontend Developer</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="text-area">
+              <label for="text-area">
+                Enter Address
+                <textarea name="" id="text-area" cols="20" rows="5"></textarea>
+              </label>
+            </div>
+            <div class="address-info">
+              <div>
+                <label for="city">
+                  City
+                  <input type="text" name="" id="city" placeholder="City" />
+                </label>
+                <label for="zip">
+                  Zip
+                  <input type="text" name="" id="zip" placeholder="Zip Code" />
+                </label>
+              </div>
+              <div>
+                <label for="date">
+                  Start Date
+                  <input type="date" name="" id="date" />
+                </label>
+                <label for="up-cv">
+                  Upload your CV
+                  <input type="file" name="" id="up-cv" />
+                </label>
+              </div>
+            </div>
+            <div class="btn">
+              <button type="submit">Apply</button>
+            </div>
+          </div>
+          <div class="last-page"><a href="./grid2.html">Last grid</a></div>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>
