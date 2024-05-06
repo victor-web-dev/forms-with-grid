@@ -7,7 +7,7 @@ Created by Victor
 
 <details>
   <summary>Design Credits</summary>
-
+  <br/>
 <details>
   <summary>Credit: Faizan Ali</summary>
   https://www.figma.com/community/file/1285223148135860491
